@@ -3,16 +3,17 @@
 import { Box } from '@mui/material'
 import { Header } from '@/components/organisms/Header'
 import { Footer } from '@/components/organisms/Footer'
-import { HomeSection } from '@/components/templates/HomeSection'
+import { ContactSection } from '@/components/templates/ContactSection'
 
-export default function Home() {
+export default function ContactPage() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
       <Box component="main" sx={{ flexGrow: 1 }}>
-        <HomeSection />
+        <ContactSection />
       </Box>
       <Footer />
     </Box>
   )
 }
+

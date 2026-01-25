@@ -1,9 +1,8 @@
 import { Box, Container, Typography } from '@mui/material'
 import { DataController } from '@/controllers/DataController'
-import { ScrollButton } from '@/components/atoms/ScrollButton'
 
 export function HomeSection() {
-  const personalInfo = DataController.getPersonalInfo()
+  const labInfo = DataController.getLabInfo()
 
   return (
     <Box
@@ -12,8 +11,8 @@ export function HomeSection() {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        color: 'white',
+        background: 'linear-gradient(135deg, #6fb8c9 0%, #a1b9c0 30%, #828486 65%, #e2dbdc 100%)',
+        color: '#242c2d',
         position: 'relative',
         overflow: 'hidden',
         '&::before': {
@@ -38,7 +37,7 @@ export function HomeSection() {
               fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem' },
             }}
           >
-            {personalInfo.name}
+            {labInfo.fullName}
           </Typography>
           <Typography
             variant="h4"
@@ -50,7 +49,7 @@ export function HomeSection() {
               fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
             }}
           >
-            {personalInfo.title}
+            {labInfo.name}
           </Typography>
           <Typography
             variant="h6"
@@ -63,9 +62,8 @@ export function HomeSection() {
               fontSize: { xs: '1rem', sm: '1.25rem' },
             }}
           >
-            {personalInfo.bio}
+            {labInfo.description}
           </Typography>
-          <ScrollButton targetId="about" label="Learn more" />
         </Box>
       </Container>
     </Box>

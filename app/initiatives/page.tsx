@@ -3,16 +3,17 @@
 import { Box } from '@mui/material'
 import { Header } from '@/components/organisms/Header'
 import { Footer } from '@/components/organisms/Footer'
-import { HomeSection } from '@/components/templates/HomeSection'
+import { ActiveInitiativesSection } from '@/components/templates/ActiveInitiativesSection'
 
-export default function Home() {
+export default function InitiativesPage() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
       <Box component="main" sx={{ flexGrow: 1 }}>
-        <HomeSection />
+        <ActiveInitiativesSection />
       </Box>
       <Footer />
     </Box>
   )
 }
+

@@ -14,7 +14,7 @@ export function SectionTitle({ title, subtitle }: SectionTitleProps) {
         sx={{
           fontWeight: 700,
           mb: 2,
-          background: 'linear-gradient(45deg, #1976d2 30%, #42a5f5 90%)',
+          background: 'linear-gradient(45deg, #1299b1 30%, #a1b9c0 90%)',
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',

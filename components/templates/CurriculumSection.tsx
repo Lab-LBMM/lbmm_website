@@ -54,7 +54,6 @@ export function CurriculumSection() {
   const [value, setValue] = useState(0)
   const publications = DataController.getPublications()
   const professionalExperience = DataController.getProfessionalExperience()
-  const education = DataController.getEducation()
   const awards = DataController.getAwards()
   const educationInitiatives = DataController.getEducationInitiatives()
   const programmingSkills = DataController.getProgrammingSkills()
@@ -87,8 +86,8 @@ export function CurriculumSection() {
     >
       <Container maxWidth="lg">
         <SectionTitle
-          title="Curriculum"
-          subtitle="Professional experience, education and publications"
+          title="Research Lines"
+          subtitle="Our research areas and publications"
         />
         <Paper elevation={0} sx={{ p: 3, mb: 4 }}>
           <Tabs
@@ -103,7 +102,6 @@ export function CurriculumSection() {
             }}
           >
             <Tab icon={<Work />} iconPosition="start" label="Experience" />
-            <Tab icon={<School />} iconPosition="start" label="Education" />
             <Tab icon={<Description />} iconPosition="start" label="Publications" />
             <Tab icon={<EmojiEvents />} iconPosition="start" label="Awards" />
             <Tab icon={<Code />} iconPosition="start" label="Skills" />
@@ -149,59 +147,6 @@ export function CurriculumSection() {
           </TabPanel>
 
           <TabPanel value={value} index={1}>
-            <Stack spacing={3}>
-              {education.map((edu) => (
-                <Paper
-                  key={edu.id}
-                  elevation={0}
-                  sx={{
-                    p: 3,
-                    border: '1px solid',
-                    borderColor: 'divider',
-                    borderRadius: 2,
-                  }}
-                >
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', flexWrap: 'wrap', gap: 2 }}>
-                    <Box sx={{ flex: 1 }}>
-                      <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                        {edu.degree}
-                      </Typography>
-                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-                        <School fontSize="small" color="action" />
-                        {edu.link ? (
-                          <Link href={edu.link} target="_blank" rel="noopener noreferrer" color="primary">
-                            {edu.institution}
-                          </Link>
-                        ) : (
-                          <Typography variant="body2" color="text.secondary">
-                            {edu.institution}
-                          </Typography>
-                        )}
-                      </Box>
-                      <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', alignItems: 'center', mt: 1 }}>
-                        <Chip label={edu.period} size="small" color="primary" variant="outlined" />
-                        {edu.thesisLink && (
-                          <Link
-                            href={edu.thesisLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}
-                          >
-                            <Description fontSize="small" />
-                            <Typography variant="body2">
-                              Read my {edu.degree.includes('Ph.D') ? 'thesis' : edu.degree.includes('M.Sc') ? 'dissertation' : 'final project'} ({edu.thesisLanguage})
-                            </Typography>
-                          </Link>
-                        )}
-                      </Box>
-                    </Box>
-                  </Box>
-                </Paper>
-              ))}
-            </Stack>
-          </TabPanel>
-
-          <TabPanel value={value} index={2}>
             <Typography variant="h6" sx={{ mb: 3, fontWeight: 600 }}>
               Selected Publications
             </Typography>
@@ -214,7 +159,7 @@ export function CurriculumSection() {
             </Grid>
           </TabPanel>
 
-          <TabPanel value={value} index={3}>
+          <TabPanel value={value} index={2}>
             <Stack spacing={3}>
               {awards.map((award) => (
                 <Paper
@@ -250,7 +195,7 @@ export function CurriculumSection() {
             </Stack>
           </TabPanel>
 
-          <TabPanel value={value} index={4}>
+          <TabPanel value={value} index={3}>
             <Grid container spacing={4}>
               <Grid item xs={12} md={6}>
                 <Paper
@@ -380,7 +325,7 @@ export function CurriculumSection() {
             </Box>
           </TabPanel>
 
-          <TabPanel value={value} index={5}>
+          <TabPanel value={value} index={4}>
             <Grid container spacing={3}>
               {curriculumLinks.googleScholar && (
                 <Grid item xs={12} sm={6} md={4}>

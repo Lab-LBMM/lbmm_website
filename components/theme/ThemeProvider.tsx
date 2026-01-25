@@ -7,22 +7,28 @@ const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#1976d2',
-      light: '#42a5f5',
-      dark: '#1565c0',
+      main: '#1299b1',
+      light: '#a1b9c0',
+      dark: '#0e7a8a',
     },
     secondary: {
-      main: '#9c27b0',
-      light: '#ba68c8',
-      dark: '#7b1fa2',
+      main: '#a1b9c0',
+      light: '#c5d4d9',
+      dark: '#828486',
     },
     background: {
-      default: '#fafafa',
+      default: '#ffffff',
       paper: '#ffffff',
     },
     text: {
-      primary: 'rgba(0, 0, 0, 0.87)',
-      secondary: 'rgba(0, 0, 0, 0.6)',
+      primary: '#242c2d',
+      secondary: '#828486',
+    },
+    grey: {
+      50: '#e2dbdc',
+      100: '#e2dbdc',
+      500: '#828486',
+      900: '#242c2d',
     },
   },
   typography: {

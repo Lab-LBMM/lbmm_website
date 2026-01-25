@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import {
   AppBar,
   Toolbar,
@@ -18,20 +20,23 @@ import {
 } from '@mui/material'
 import { Menu, Close } from '@mui/icons-material'
 import { useTheme, useMediaQuery } from '@mui/material'
+import Image from 'next/image'
 
 const navItems = [
-  { label: 'Home', id: 'home' },
-  { label: 'About', id: 'about' },
-  { label: 'Initiatives', id: 'initiatives' },
-  { label: 'Curriculum', id: 'curriculum' },
-  { label: 'Collaborations', id: 'collaborations' },
-  { label: 'Contact', id: 'contact' },
+  { label: 'Home', path: '/' },
+  { label: 'About', path: '/about' },
+  { label: 'Initiatives', path: '/initiatives' },
+  { label: 'Research Lines', path: '/research-lines' },
+  { label: 'Our Team', path: '/team' },
+  { label: 'Collaborations', path: '/collaborations' },
+  { label: 'Contact', path: '/contact' },
 ]
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+  const pathname = usePathname()
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
@@ -39,14 +44,6 @@ export function Header() {
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
-  }
-
-  const handleNavClick = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
-    setMobileOpen(false)
   }
 
   const drawer = (
@@ -61,8 +58,13 @@ export function Header() {
       </Box>
       <List>
         {navItems.map((item) => (
-          <ListItem key={item.id} disablePadding>
-            <ListItemButton onClick={() => handleNavClick(item.id)}>
+          <ListItem key={item.path} disablePadding>
+            <ListItemButton
+              component={Link}
+              href={item.path}
+              selected={pathname === item.path}
+              onClick={handleDrawerToggle}
+            >
               <ListItemText primary={item.label} />
             </ListItemButton>
           </ListItem>
@@ -85,18 +87,34 @@ export function Header() {
       >
         <Container maxWidth="lg">
           <Toolbar sx={{ justifyContent: 'space-between', py: 1 }}>
-            <Typography
-              variant="h6"
-              component="div"
+            <Box
+              component={Link}
+              href="/"
               sx={{
-                fontWeight: 700,
-                fontSize: { xs: '1rem', sm: '1.25rem' },
-                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                textDecoration: 'none',
+                color: 'inherit',
               }}
-              onClick={() => handleNavClick('home')}
             >
-              Dr. Renato A. Corrêa dos Santos
-            </Typography>
+              <Image
+                src="/logo_lbmm_racs.jpg"
+                alt="LBMM RACS Logo"
+                width={40}
+                height={40}
+                style={{ marginRight: 8 }}
+                priority
+              />
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 700,
+                  fontSize: { xs: '1rem', sm: '1.25rem' },
+                }}
+              >
+                LBMM RACS
+              </Typography>
+            </Box>
             {isMobile ? (
               <IconButton
                 color="inherit"
@@ -110,14 +128,15 @@ export function Header() {
               <Box sx={{ display: 'flex', gap: 1 }}>
                 {navItems.map((item) => (
                   <Button
-                    key={item.id}
+                    key={item.path}
+                    component={Link}
+                    href={item.path}
                     color="inherit"
-                    onClick={() => handleNavClick(item.id)}
                     sx={{
                       textTransform: 'none',
-                      fontWeight: 500,
+                      fontWeight: pathname === item.path ? 600 : 500,
                       '&:hover': {
-                        bgcolor: 'rgba(255, 255, 255, 0.1)',
+                        bgcolor: 'rgba(0, 0, 0, 0.05)',
                       },
                     }}
                   >
@@ -149,4 +168,3 @@ export function Header() {
     </>
   )
 }
-

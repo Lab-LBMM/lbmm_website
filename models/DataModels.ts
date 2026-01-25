@@ -52,6 +52,13 @@ export interface PersonalInfo {
   contact: ContactInfo
 }
 
+export interface LabInfo {
+  name: string
+  fullName: string
+  description: string
+  acronym?: string
+}
+
 export interface ProfessionalExperience {
   id: string
   position: string

@@ -13,12 +13,12 @@ export function InitiativeCard({ initiative }: InitiativeCardProps) {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        background: 'linear-gradient(135deg, #1299b1 0%, #0e7a8a 100%)',
         color: 'white',
         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
         '&:hover': {
           transform: 'translateY(-8px)',
-          boxShadow: '0 8px 24px rgba(102, 126, 234, 0.4)',
+          boxShadow: '0 8px 24px rgba(18, 153, 177, 0.4)',
         },
       }}
     >

@@ -5,8 +5,13 @@ import { ThemeProvider } from '@/components/theme/ThemeProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Dr. Renato A. Corrêa dos Santos',
-  description: 'Personal academic website of Dr. Renato A. Corrêa dos Santos',
+  title: 'LBMM RACS',
+  description: 'Laboratory website of LBMM RACS',
+  icons: {
+    icon: '/logo_lbmm_racs.jpg',
+    shortcut: '/logo_lbmm_racs.jpg',
+    apple: '/logo_lbmm_racs.jpg',
+  },
 }
 
 export default function RootLayout({
