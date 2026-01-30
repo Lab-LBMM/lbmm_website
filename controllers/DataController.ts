@@ -16,7 +16,7 @@ export class DataController {
   static getLabInfo(): LabInfo {
     return {
       name: 'LBMM RACS',
-      fullName: 'Bioinformatics and Multi-omics of Microorganisms Laboratory',
+      fullName: 'Laboratory of Bioinformatics and Microbial Multi-omics',
       acronym: 'LBMM',
       description: 'Research laboratory dedicated to bioinformatics and multi-omics analysis of microorganisms. We combine computational approaches with biological research to advance our understanding of microbial systems.',
     }
