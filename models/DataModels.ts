@@ -108,3 +108,48 @@ export interface CurriculumLinks {
   gitlab?: string
 }
 
+export interface News {
+  id: string
+  title: string
+  description: string
+  image?: string
+  date: string
+  link?: string
+  author?: string
+}
+
+export interface Tool {
+  id: string
+  name: string
+  description: string
+  link?: string
+  type?: 'server' | 'application' | 'software' | 'platform'
+  databases?: Array<{
+    name: string
+    type: string
+    description: string
+    sequences?: number
+  }>
+}
+
+export interface Teaching {
+  id: string
+  title: string
+  description: string
+  period?: string
+  link?: string
+  type?: 'course' | 'workshop' | 'seminar' | 'discipline'
+}
+
+export interface TeamMember {
+  id: string
+  name: string
+  role: string
+  description?: string
+  image?: string
+  email?: string
+  link?: string
+  type: 'current' | 'alumni'
+  category?: 'principal_investigator' | 'postdoc' | 'phd' | 'masters' | 'undergraduate' | 'alumni'
+}
+

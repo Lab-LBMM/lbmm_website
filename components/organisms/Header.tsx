@@ -25,9 +25,11 @@ import Image from 'next/image'
 const navItems = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
-  { label: 'Initiatives', path: '/initiatives' },
   { label: 'Research Lines', path: '/research-lines' },
   { label: 'Our Team', path: '/team' },
+  { label: 'News', path: '/news' },
+  { label: 'Tools', path: '/tools' },
+  { label: 'Teaching', path: '/teaching' },
   { label: 'Collaborations', path: '/collaborations' },
   { label: 'Contact', path: '/contact' },
 ]
@@ -125,7 +127,7 @@ export function Header() {
                 <Menu />
               </IconButton>
             ) : (
-              <Box sx={{ display: 'flex', gap: 1 }}>
+              <Box sx={{ display: 'flex', gap: 2 }}>
                 {navItems.map((item) => (
                   <Button
                     key={item.path}
@@ -135,6 +137,7 @@ export function Header() {
                     sx={{
                       textTransform: 'none',
                       fontWeight: pathname === item.path ? 600 : 500,
+                      px: 1.5,
                       '&:hover': {
                         bgcolor: 'rgba(0, 0, 0, 0.05)',
                       },

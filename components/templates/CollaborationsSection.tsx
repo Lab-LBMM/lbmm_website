@@ -5,7 +5,6 @@ import { DataController } from '@/controllers/DataController'
 
 export function CollaborationsSection() {
   const allCollaborations = DataController.getCollaborations()
-  const activeCollaborations = allCollaborations.filter((c) => c.type === 'active')
   const workedWith = allCollaborations.filter((c) => c.type === 'worked_with')
 
   return (
@@ -19,27 +18,12 @@ export function CollaborationsSection() {
       <Container maxWidth="lg">
         <SectionTitle
           title="Collaborations"
-          subtitle="Partners and collaborators in research projects"
+          subtitle="External partners and collaborators in research projects"
         />
         
-        <Box sx={{ mb: 6 }}>
-          <Typography variant="h5" component="h3" sx={{ mb: 4, fontWeight: 600 }}>
-            Active Collaborations
-          </Typography>
-          <Grid container spacing={4}>
-            {activeCollaborations.map((collaboration) => (
-              <Grid item xs={12} md={6} key={collaboration.id}>
-                <CollaborationCard collaboration={collaboration} />
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-
-        <Divider sx={{ my: 6 }} />
-
         <Box>
           <Typography variant="h5" component="h3" sx={{ mb: 4, fontWeight: 600 }}>
-            People I've Worked With (last 3-4 years)
+            People We've Worked With (last 3-4 years)
           </Typography>
           <Grid container spacing={4}>
             {workedWith.map((collaboration) => (
