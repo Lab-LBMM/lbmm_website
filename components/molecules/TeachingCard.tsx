@@ -76,3 +76,4 @@ export function TeachingCard({ teaching }: TeachingCardProps) {
   )
 }
 
+

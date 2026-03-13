@@ -23,7 +23,7 @@ export function CollaborationsSection() {
         
         <Box>
           <Typography variant="h5" component="h3" sx={{ mb: 4, fontWeight: 600 }}>
-            People We've Worked With (last 3-4 years)
+            People We&apos;ve Worked With (last 3-4 years)
           </Typography>
           <Grid container spacing={4}>
             {workedWith.map((collaboration) => (

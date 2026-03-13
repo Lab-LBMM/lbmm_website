@@ -70,3 +70,4 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
   )
 }
 
+
