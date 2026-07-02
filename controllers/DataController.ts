@@ -257,6 +257,7 @@ export class DataController {
         link: 'https://labbces.netlify.app/',
         type: 'active',
       },
+      
       {
         id: 'active-2',
         name: 'Prof. Dr. Francisco Scaglia Linhares',
