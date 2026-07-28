@@ -1,5 +1,5 @@
 'use client'
-
+import CoPresentTwoToneIcon from '@mui/icons-material/CoPresentTwoTone';
 import {
   Box,
   Container,
@@ -52,6 +52,7 @@ function TabPanel(props: TabPanelProps) {
 
 export function CurriculumSection() {
   const [value, setValue] = useState(0)
+  const presentations = DataController.getPresentations();
   const publications = DataController.getPublications()
   const professionalExperience = DataController.getProfessionalExperience()
   const awards = DataController.getAwards()
@@ -101,14 +102,13 @@ export function CurriculumSection() {
               borderColor: 'divider',
             }}
           >
-            <Tab icon={<Work />} iconPosition="start" label="Experience" />
             <Tab icon={<Description />} iconPosition="start" label="Publications" />
             <Tab icon={<EmojiEvents />} iconPosition="start" label="Awards" />
-            <Tab icon={<Code />} iconPosition="start" label="Skills" />
-            <Tab icon={<LinkIcon />} iconPosition="start" label="Links" />
+            <Tab icon={<CoPresentTwoToneIcon />} iconPosition="start" label="Conference attendance" />
+
           </Tabs>
 
-          <TabPanel value={value} index={0}>
+          <TabPanel value={value} index={9}>
             <Stack spacing={3}>
               {professionalExperience.map((exp) => (
                 <Paper
@@ -146,7 +146,7 @@ export function CurriculumSection() {
             </Stack>
           </TabPanel>
 
-          <TabPanel value={value} index={1}>
+          <TabPanel value={value} index={0}>
             <Typography variant="h6" sx={{ mb: 3, fontWeight: 600 }}>
               Selected Publications
             </Typography>
@@ -159,7 +159,7 @@ export function CurriculumSection() {
             </Grid>
           </TabPanel>
 
-          <TabPanel value={value} index={2}>
+          <TabPanel value={value} index={1}>
             <Stack spacing={3}>
               {awards.map((award) => (
                 <Paper
@@ -195,7 +195,78 @@ export function CurriculumSection() {
             </Stack>
           </TabPanel>
 
-          <TabPanel value={value} index={3}>
+          <TabPanel value={value} index={2}>
+            <Stack spacing={3}>
+              {presentations.map((presentation) => (
+                <Paper
+                  key={presentation.id}
+                  elevation={0}
+                  sx={{
+                    p: 3,
+                    border: '1px solid',
+                    borderColor: 'divider',
+                    borderRadius: 2,
+                    bgcolor: 'background.paper',
+                  }}
+                >
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', flexWrap: 'wrap', gap: 2 }}>
+                    <Box sx={{ flex: 1 }}>
+
+                      {/* Título e Ícone */}
+                      <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1, mb: 1 }}>
+                        <CoPresentTwoToneIcon color="primary" sx={{ mt: 0.5 }} />
+                        <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                          {presentation.title}
+                        </Typography>
+                      </Box>
+
+                      {/* Autores */}
+                      <Typography variant="body2" color="text.secondary" sx={{ mb: 1, ml: 4, fontStyle: 'italic' }}>
+                        {presentation.authors.join(', ')}
+                      </Typography>
+
+                      {/* Nome do Evento */}
+                      <Typography variant="body1" sx={{ mb: 1.5, ml: 4, fontWeight: 500 }}>
+                        {presentation.conferenceName}
+                      </Typography>
+
+                      {/* Descrição Opcional */}
+                      {presentation.description && (
+                        <Typography variant="body2" sx={{ opacity: 0.9, mb: 2, ml: 4 }}>
+                          {presentation.description}
+                        </Typography>
+                      )}
+
+                      {/* Chips de Informação (Ano, Tipo e Status) */}
+                      <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', ml: 4 }}>
+                        <Chip
+                          label={presentation.year}
+                          size="small"
+                          color="primary"
+                          variant="outlined"
+                        />
+                        <Chip
+                          label={presentation.type === 'poster' ? 'Poster' : 'Oral Presentation'}
+                          size="small"
+                          variant="outlined"
+                        />
+                        {presentation.status === 'upcoming' && (
+                          <Chip
+                            label="Upcoming"
+                            size="small"
+                            color="secondary"
+                          />
+                        )}
+                      </Box>
+
+                    </Box>
+                  </Box>
+                </Paper>
+              ))}
+            </Stack>
+          </TabPanel>
+
+          <TabPanel value={value} index={9}>
             <Grid container spacing={4}>
               <Grid item xs={12} md={6}>
                 <Paper

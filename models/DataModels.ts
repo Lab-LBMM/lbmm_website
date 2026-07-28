@@ -28,6 +28,49 @@ export interface Initiative {
     website?: string
   }
 }
+export interface SciCommItem {
+  id: string | number
+  title: string
+  description: string
+  type: 'podcast' | 'article' | 'video' | 'talk' 
+  date: string
+  url: string
+  platform: string
+}
+export interface Graduation {
+  id: string | number
+  title: string   
+  level: 'Bachelor' | 'Master' | 'phd' | 'Doctorate'| 'Master/Doctorate'  
+  institution: string     
+  period: string          
+  description: string     
+  link?: string          
+}
+export interface Course {
+  id: string | number
+  title: string           
+  type: 'course' | 'workshop' | 'seminar' | 'bootcamp'
+  platform: string        
+  period: string          
+  description: string     
+  link?: string          
+}
+export interface ConferencePresentation {
+  id: string
+  title: string
+  authors: string[] 
+  conferenceName: string 
+  year: number
+  status: 'presented' | 'upcoming' 
+  type: 'poster' | 'oral' | 'attendee' 
+  description?: string 
+  image?: string 
+  links?: {
+    instagram?: string 
+    anais?: string 
+    website?: string 
+  }
+}
 
 export interface ContactInfo {
   email: string

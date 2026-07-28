@@ -14,16 +14,104 @@ import {
   Tool,
   Teaching,
   TeamMember,
+  ConferencePresentation,
+  SciCommItem,
+  Course,
+  Graduation,
 } from '@/models/DataModels'
 
 export class DataController {
   static getLabInfo(): LabInfo {
     return {
-      name: 'LBMM RACS',
+      name: '',
       fullName: 'Laboratory of Bioinformatics and Microbial Multi-omics',
       acronym: 'LBMM',
-      description: 'Research laboratory dedicated to bioinformatics and multi-omics analysis of microorganisms. We combine computational approaches with biological research to advance our understanding of microbial systems.',
+      description: 'Our research integrates bioinformatics and multi-omics analyses to study the diversity, functions, and interactions of microorganisms in experimental systems and natural microbiomes. We use metagenomics, metatranscriptomics, and network analysis to investigate ecological processes and biotechnological potential. Additionally, we develop collaborations using artificial intelligence-based approaches and language models for literature data analysis.',
     }
+  }
+  static getGraduations(): Graduation[] {
+    return [
+      {
+        id: 1,
+        title: 'Bioinformatics applied to distinct omics approaches',
+        institution: 'São Paulo State University (UNESP)',
+        level: 'Master/Doctorate',
+        period: '',
+        description: 'Undergraduate thesis evaluating the biotechnological potential of natural microbiomes using computational tools.',
+        link:"https://ib.rc.unesp.br/Home/Pos-Graduacao44/secaotecnicadepos46/programas/cienciasbiologicasbiologiacelularmolecularemicrobiologia/bioinformatica-aplicada-a-distintas-abordagens-omicas.pdf"
+      }
+    ]
+  }
+
+  static getCourses(): Course[] {
+    return [
+      {
+        id: 1,
+        title: 'Applied Metagenomics and Multi-omics',
+        type: 'course',
+        platform: 'Coursera',
+        period: '2023',
+        description: 'Comprehensive course on sequencing data analysis, from quality control to functional annotation of microorganisms.',
+        link: 'https://coursera.org'
+      },
+      {
+        id: 2,
+        title: 'AI and Language Models in Literature Analysis',
+        type: 'workshop',
+        platform: 'ISCB (International Society for Computational Biology)',
+        period: '2024',
+        description: 'Hands-on workshop exploring the use of Artificial Intelligence and LLMs for biological literature mining and data extraction.'
+      },
+      {
+        id: 3,
+        title: 'Microbiome Network Analysis',
+        type: 'bootcamp',
+        platform: 'EMBL-EBI',
+        period: '2022',
+        description: 'Intensive training on constructing and analyzing microbial interaction networks to investigate ecological processes.'
+      }
+    ]
+  }
+
+  static getScienceCommunication(): SciCommItem[] {
+    return [
+      {
+        id: 1,
+        title: 'A Importância da Reprodutibilidade na Bioinformática',
+        description: 'Discussão sobre como práticas computacionais reprodutíveis estão moldando o futuro da análise de dados biológicos e a ciência aberta.',
+        type: 'video',
+        date: 'Oct 15, 2023',
+        url: 'https://youtube.com',
+        platform: 'YouTube'
+      },
+      {
+        id: 2,
+        title: 'Desmistificando a Genômica e a Transcriptômica',
+        description: 'Um bate-papo acessível sobre os fundamentos do sequenciamento genético e como extraímos informações valiosas do DNA.',
+        type: 'podcast',
+        date: 'Sep 02, 2023',
+        url: 'https://spotify.com',
+        platform: 'Spotify'
+      },
+      {
+        id: 3,
+        title: 'Saúde Mental na Pós-Graduação e na Pesquisa Científica',
+        description: 'Artigo abordando os desafios de saúde mental enfrentados por pesquisadores e como podemos promover um ambiente acadêmico mais saudável.',
+        type: 'article',
+        date: 'Aug 10, 2023',
+        url: 'https://medium.com',
+        platform: 'Medium'
+      },
+      {
+        id: 4,
+        title: 'Introdução à Análise de Dados Biológicos',
+        description: 'Palestra de introdução aos conceitos fundamentais de análise de dados aplicados à biologia molecular e microbiologia.',
+        type: 'talk',
+        date: 'Jul 22, 2023',
+        url: 'https://linkedin.com',
+        platform: 'Symposium'
+      }
+    ]
   }
 
   static getPersonalInfo(): PersonalInfo {
@@ -36,19 +124,23 @@ export class DataController {
         'Bioinformatics Education',
         'Mental Health',
         'Microbiology and Plant Biology',
+        'Omics',
+        'Microbiomes',
+        'Micro-organisms',
+        'Bioinformatics',
         'Research Ethics and Integrity',
         'Computer Science, Data Science, and Data Analysis',
         'Genetics and Molecular Biology',
       ],
       contact: {
-        email: 'renatoacsantos@gmail.com',
-        institutionalEmail: 'renatoacsantos@usp.br',
-        phone: '+55 (19) 99722-5665',
+        email: 'labbmmicro@gmail.com',
+        institutionalEmail: 'rac.santos@unesp.br',
+        phone: '',
         address: 'Brazil',
         socialMedia: {
-          instagram: 'https://www.instagram.com/renato.correa.182/',
-          facebook: 'https://www.facebook.com/renato.correa.182',
-          linkedin: 'https://www.linkedin.com/in/renato-augusto-corr%C3%AAa-dos-santos-263202132/',
+          instagram: 'https://www.instagram.com/lab_lbmm/',
+          facebook: '',
+          linkedin: 'https://www.linkedin.com/company/laborat%C3%B3rio-de-bioinform%C3%A1tica-e-multi-%C3%B4micas-de-microrganismos/',
           orcid: 'https://orcid.org/0000-0003-0826-5479',
         },
       },
@@ -66,6 +158,49 @@ export class DataController {
         },
       },
     ]
+  }
+
+  static getPresentations(): ConferencePresentation[] {
+    return [
+      {
+        id: '1',
+        title: 'Título do trabalho da Julia no CIC',
+        authors: ['julia.amaro@unesp.br', 'Outros Autores'],
+        conferenceName: 'Congresso de Iniciação Científica (CIC)',
+        year: 2026,
+        status: 'upcoming',
+        type: 'poster',
+        description: 'Apresentação dos resultados parciais da pesquisa no CIC.',
+      },
+      {
+        id: '2',
+        title: 'Título do trabalho do JFS no CIC',
+        authors: ['jfs.ferreira@unesp.br', 'Outros Autores'],
+        conferenceName: 'Congresso de Iniciação Científica (CIC)',
+        year: 2026,
+        status: 'upcoming',
+        type: 'poster',
+      },
+      {
+        id: '3',
+        title: 'Título do trabalho da Lorena no CIC',
+        authors: ['lorena.f.silva@unesp.br', 'Outros Autores'],
+        conferenceName: 'Congresso de Iniciação Científica (CIC)',
+        year: 2026,
+        status: 'upcoming',
+        type: 'poster',
+      },
+      {
+        id: '4',
+        title: 'Título do trabalho submetido ao Congresso de Genética',
+        authors: ['julia.amaro@unesp.br', 'Outra Julia', 'fabiorodrigodefreitas@gmail.com'],
+        conferenceName: 'Congresso Brasileiro de Genética',
+        year: 2026,
+        status: 'upcoming',
+        type: 'poster',
+        description: 'Trabalho desenvolvido em conjunto sobre genômica/bioinformática.',
+      }
+    ];
   }
 
   static getPublications(): Publication[] {
@@ -327,6 +462,41 @@ export class DataController {
         type: 'active',
       },
       {
+        id: 'active-12',
+        name: 'Júlia Braga Amaro',
+        institution: 'São Paulo State University (UNESP)',
+        lab: 'LBMM',
+        type: 'active',
+      },
+      {
+        id: 'active-13',
+        name: 'Lorena Ferreira da Silva',
+        institution: 'São Paulo State University (UNESP)',
+        lab: 'LBMM',
+        type: 'active',
+      },
+      {
+        id: 'active-14',
+        name: 'Julia Ferreira Santos',
+        institution: 'São Paulo State University (UNESP)',
+        lab: 'LBMM',
+        type: 'active',
+      },
+      {
+        id: 'active-15',
+        name: 'Fábio Rodrigo de Freitas ',
+        institution: 'São Paulo State University (UNESP)',
+        lab: 'LBMM',
+        type: 'active',
+      },
+      {
+        id: 'active-15',
+        name: 'Eduardo Barbosa',
+        institution: 'São Paulo State University (UNESP)',
+        lab: 'LBMM',
+        type: 'active',
+      },
+      {
         id: 'worked-1',
         name: 'Prof. Dr. Flavia Vischi Winck',
         institution: 'CENA/USP',
@@ -408,12 +578,14 @@ export class DataController {
         description: 'Our latest research on computational reproducibility in biological sciences has been published.',
         date: '2024-01-15',
         author: 'Dr. Renato A. Corrêa dos Santos',
+        link: "vsvs"
       },
       {
         id: '2',
         title: 'Workshop on Python for Biological Data',
         description: 'Join us for our upcoming workshop on Python programming for biological data analysis.',
         date: '2024-02-20',
+        link: "vsvs"
       },
     ]
   }

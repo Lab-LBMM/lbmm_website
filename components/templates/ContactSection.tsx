@@ -41,7 +41,7 @@ export function ContactSection() {
                     <Email color="primary" />
                     <Box>
                       <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5 }}>
-                        Personal email
+                        Lab email
                       </Typography>
                       <Link href={`mailto:${personalInfo.contact.email}`} color="inherit">
                         {personalInfo.contact.email}
@@ -53,7 +53,7 @@ export function ContactSection() {
                       <Email color="primary" />
                       <Box>
                         <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5 }}>
-                          Institutional email
+                           Dr. Renato Santos (PI)
                         </Typography>
                         <Link href={`mailto:${personalInfo.contact.institutionalEmail}`} color="inherit">
                           {personalInfo.contact.institutionalEmail}
