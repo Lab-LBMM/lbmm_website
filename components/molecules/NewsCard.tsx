@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Typography, Box, Link, Chip } from '@mui/material'
+import { Card, CardContent, CardMedia, Typography, Box, Button, Chip } from '@mui/material'
 import { CalendarToday, Person } from '@mui/icons-material'
 import { News } from '@/models/DataModels'
 
@@ -34,7 +34,7 @@ export function NewsCard({ news }: NewsCardProps) {
           sx={{ objectFit: 'cover' }}
         />
       )}
-      <CardContent sx={{ flexGrow: 1, p: 3 }}>
+      <CardContent sx={{ flexGrow: 1, p: 3, display: 'flex', flexDirection: 'column' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
           <CalendarToday fontSize="small" color="action" />
           <Typography variant="caption" color="text.secondary">
@@ -55,17 +55,23 @@ export function NewsCard({ news }: NewsCardProps) {
         <Typography variant="h6" component="h3" sx={{ mb: 2, fontWeight: 600 }}>
           {news.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
           {news.description}
         </Typography>
+        
         {news.link && (
-          <Link href={news.link} target="_blank" rel="noopener noreferrer">
+          <Button 
+            href={news.link} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            variant="outlined"
+            size="small"
+            sx={{ mt: 'auto', alignSelf: 'flex-start' }}
+          >
             Read more
-          </Link>
+          </Button>
         )}
       </CardContent>
     </Card>
   )
 }
-
-

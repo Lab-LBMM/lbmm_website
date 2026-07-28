@@ -1,43 +1,44 @@
-'use client'
-
-import { Box, Container, Grid } from '@mui/material'
-import { Header } from '@/components/organisms/Header'
-import { Footer } from '@/components/organisms/Footer'
-import { SectionTitle } from '@/components/atoms/SectionTitle'
-import { TeachingCard } from '@/components/molecules/TeachingCard'
+import { Box, Container, Typography } from '@mui/material'
+import { TeachingSection } from '@/components/templates/TeachingSection'
 import { DataController } from '@/controllers/DataController'
+import { Header } from '@/components/organisms/Header' 
+import { Footer } from '@/components/organisms/Footer'
 
 export default function TeachingPage() {
-  const teaching = DataController.getTeaching()
+  const graduations = DataController.getGraduations()
+  const courses = DataController.getCourses()
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      
       <Header />
-      <Box component="main" sx={{ flexGrow: 1 }}>
-        <Box
-          sx={{
-            py: { xs: 8, md: 12 },
-            bgcolor: 'background.default',
-          }}
-        >
-          <Container maxWidth="lg">
-            <SectionTitle
-              title="Teaching"
-              subtitle="Courses and disciplines offered by the laboratory"
-            />
-            <Grid container spacing={4}>
-              {teaching.map((item) => (
-                <Grid item xs={12} md={6} key={item.id}>
-                  <TeachingCard teaching={item} />
-                </Grid>
-              ))}
-            </Grid>
-          </Container>
-        </Box>
+
+      <Box component="main" sx={{ flexGrow: 1, py: { xs: 6, md: 10 } }}>
+        <Container maxWidth="lg">
+          
+          <Box sx={{ mb: 6, textAlign: 'center' }}>
+            <Typography 
+              variant="h3" 
+              component="h1" 
+              sx={{ fontWeight: 700, mb: 2, color: 'primary.main' }}
+            >
+              Teaching
+            </Typography>
+            <Typography variant="h6" color="text.secondary">
+              Courses and disciplines offered by the laboratory
+            </Typography>
+          </Box>
+
+          <TeachingSection 
+            graduations={graduations} 
+            courses={courses} 
+          />
+
+        </Container>
       </Box>
+
       <Footer />
+
     </Box>
   )
 }
-
-

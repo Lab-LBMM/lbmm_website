@@ -15,12 +15,12 @@ export function AboutSection() {
     {
       icon: <Science sx={{ fontSize: 48 }} />,
       title: 'Research',
-      description: 'Dedication to scientific research with emphasis on computational reproducibility.',
+      description: 'Dedication to scientific research on bioinformatics of microbiomes and microbes',
     },
     {
       icon: <Public sx={{ fontSize: 48 }} />,
       title: 'Collaboration',
-      description: 'Networking with researchers from Brazil and Latin America.',
+      description: 'Networking with researchers from Brazil and abroad',
     },
   ]
 
@@ -80,7 +80,7 @@ export function AboutSection() {
               }}
             >
               <Typography variant="h5" component="h3" sx={{ mb: 3, fontWeight: 600 }}>
-                Biography
+                Mission and Vision
               </Typography>
               <Typography variant="body1" sx={{ lineHeight: 1.8, fontSize: '1.1rem' }}>
                 {personalInfo.bio}
